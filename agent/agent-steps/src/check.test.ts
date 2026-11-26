@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest'
-import { createOntology, InMemoryAdapter, type Ctx, type Provenance } from '@dqa-ai-solutions/core-runtime'
+import { createOntology, InMemoryAdapter, type Ctx, type Provenance } from '@dqa-ai-solutions/ontology-runtime'
 import type { StepContext } from '@dqa-ai-solutions/agent-orchestrator'
-import { loadOntology } from '@dqa-ai-solutions/core-runtime'
+import { loadOntology } from '@dqa-ai-solutions/ontology-runtime'
 import { checkExecutor } from './executors.js'
-import { rule } from '@dqa-ai-solutions/core-runtime'
+import { rule } from '@dqa-ai-solutions/ontology-runtime'
 
 const ctx: Ctx = { tenantId: 't', actor: 'a' }
 const prov: Provenance = { source_ref: 'test', confirmed_by: 'a', confirmed_at: '2026-01-01T00:00:00.000Z' }

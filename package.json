@@ -1,6 +1,6 @@
 {
   "name": "agent-runtime-workspace",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Source of @dqa-ai-solutions/agent-runtime. The agent tier in one package: host, orchestrator, step executors, always-on tier, document ingestion. Stands on @dqa-ai-solutions/core-runtime.",
   "license": "Apache-2.0",
@@ -18,7 +18,8 @@
   "devDependencies": {
     "turbo": "^2.3.0",
     "typescript": "^5.9.3",
-    "@dqa-ai-solutions/core-runtime": "^0.1.0"
+    "@dqa-ai-solutions/core-runtime": "^0.2.0",
+    "@dqa-ai-solutions/ontology-runtime": "^0.2.0"
   },
   "engines": {
     "node": ">=20"

@@ -8,9 +8,9 @@ import fs from 'fs-extra'
 import path from 'node:path'
 import os from 'node:os'
 import { Orchestrator, WorkflowRunner, type WorkflowV3 } from '@dqa-ai-solutions/agent-orchestrator'
-import { createOntology, InMemoryAdapter } from '@dqa-ai-solutions/core-runtime'
-import { GovernedOntologyPort, auditInterceptor, type AuditRecord } from '@dqa-ai-solutions/core-runtime'
-import { loadOntology, loadRules } from '@dqa-ai-solutions/core-runtime'
+import { createOntology, InMemoryAdapter } from '@dqa-ai-solutions/ontology-runtime'
+import { GovernedOntologyPort, auditInterceptor, type AuditRecord } from '@dqa-ai-solutions/ontology-runtime'
+import { loadOntology, loadRules } from '@dqa-ai-solutions/ontology-runtime'
 import { ontologyExecutors } from './executors.js'
 
 const ctx = { tenantId: 't1', actor: 'analyst' }

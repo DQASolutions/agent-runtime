@@ -11,9 +11,9 @@ import fs from 'fs-extra'
 import path from 'node:path'
 import os from 'node:os'
 import type { StepContext } from '@dqa-ai-solutions/agent-orchestrator'
-import { createOntology, InMemoryAdapter } from '@dqa-ai-solutions/core-runtime'
-import { GovernedOntologyPort } from '@dqa-ai-solutions/core-runtime'
-import { loadOntology } from '@dqa-ai-solutions/core-runtime'
+import { createOntology, InMemoryAdapter } from '@dqa-ai-solutions/ontology-runtime'
+import { GovernedOntologyPort } from '@dqa-ai-solutions/ontology-runtime'
+import { loadOntology } from '@dqa-ai-solutions/ontology-runtime'
 import { ingestExecutor, readSourcesExecutor } from './executors.js'
 
 const ctx = { tenantId: 't1', actor: 'analyst' }

@@ -2,7 +2,7 @@
 // OntologySchema directly (no live port needed) and asserts every error class is
 // caught, with its dotted path, and that a clean payload passes.
 import { describe, it, expect } from 'vitest'
-import type { OntologySchema } from '@dqa-ai-solutions/core-runtime'
+import type { OntologySchema } from '@dqa-ai-solutions/ontology-runtime'
 import { validateIngestPayload } from './ingest-payload-validator.js'
 
 const schema: OntologySchema = {

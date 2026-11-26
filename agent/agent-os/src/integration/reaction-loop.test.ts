@@ -11,8 +11,8 @@
 // existing is touched: there is no barge-in code path at all).
 
 import { describe, it, expect } from 'vitest'
-import { createOntology, InMemoryAdapter } from '@dqa-ai-solutions/core-runtime'
-import { GovernedOntologyPort, capabilityInterceptor } from '@dqa-ai-solutions/core-runtime'
+import { createOntology, InMemoryAdapter } from '@dqa-ai-solutions/ontology-runtime'
+import { GovernedOntologyPort, capabilityInterceptor } from '@dqa-ai-solutions/ontology-runtime'
 import { InMemoryQueue } from '../queue/in-memory-queue.js'
 import { OsKernel } from '../kernel/os-kernel.js'
 import { Scheduler } from '../scheduler/scheduler.js'

@@ -41,15 +41,15 @@ import {
   type NextTaskPayload,
   type ExecutorRegistry,
 } from '@dqa-ai-solutions/agent-orchestrator'
-import { createOntology, type Ontology, type Ctx, type Provenance } from '@dqa-ai-solutions/core-runtime'
-import { GovernedOntologyPort, rbacInterceptor, auditInterceptor, type AuditRecord } from '@dqa-ai-solutions/core-runtime'
-import { loadOntology, loadRules, type OntologyDecl, type RulesDecl } from '@dqa-ai-solutions/core-runtime'
+import { createOntology, type Ontology, type Ctx, type Provenance } from '@dqa-ai-solutions/ontology-runtime'
+import { GovernedOntologyPort, rbacInterceptor, auditInterceptor, type AuditRecord } from '@dqa-ai-solutions/ontology-runtime'
+import { loadOntology, loadRules, type OntologyDecl, type RulesDecl } from '@dqa-ai-solutions/ontology-runtime'
 import { loadSkills, ontologyExecutors, checkExecutor, evalFindings, functionIO } from '@dqa-ai-solutions/agent-steps'
-import { loadFunctions, type RulesByType } from '@dqa-ai-solutions/core-runtime'
+import { loadFunctions, type RulesByType } from '@dqa-ai-solutions/ontology-runtime'
 import { readAppDecl } from './load-app.js'
 import { loadAppExecutors, type AppExecutorIO } from '@dqa-ai-solutions/agent-steps'
 import { parseSkill } from './skill-frontmatter.js'
-import { buildStorage, type AppManifest } from '@dqa-ai-solutions/core-runtime'
+import { buildStorage, type AppManifest } from '@dqa-ai-solutions/ontology-runtime'
 import { appendTrace, ledgerPath, type TraceKind } from './trace.js'
 import { writeGrant } from './grant.js'
 

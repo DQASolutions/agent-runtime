@@ -1,6 +1,6 @@
 {
   "name": "@dqa-ai-solutions/agent-runtime",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The agent tier in one package: host, orchestrator, step executors, always-on tier, document ingestion. Stands on @dqa-ai-solutions/core-runtime.",
   "license": "Apache-2.0",
   "repository": {
@@ -44,12 +44,14 @@
     "@dqa-ai-solutions/ingest-documents": "^5.1.1"
   },
   "peerDependencies": {
-    "@dqa-ai-solutions/core-runtime": "^0.1.0"
+    "@dqa-ai-solutions/core-runtime": "^0.2.0",
+    "@dqa-ai-solutions/ontology-runtime": "^0.2.0"
   },
   "devDependencies": {
-    "@dqa-ai-solutions/core-runtime": "^0.1.0",
+    "@dqa-ai-solutions/core-runtime": "^0.2.0",
     "@types/node": "^25.3.5",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "vitest": "^4.0.18",
+    "@dqa-ai-solutions/ontology-runtime": "^0.2.0"
   }
 }

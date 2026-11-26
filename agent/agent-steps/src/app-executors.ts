@@ -21,7 +21,7 @@ import fs from 'fs-extra'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import type { StepExecutor, ExecutorRegistry } from '@dqa-ai-solutions/agent-orchestrator'
-import type { OntologyPort, Ctx, Provenance } from '@dqa-ai-solutions/core-runtime'
+import type { OntologyPort, Ctx, Provenance } from '@dqa-ai-solutions/ontology-runtime'
 import type { RuleFinding } from './executors.js'
 
 /** What an app executor factory receives — the governed port + context, for

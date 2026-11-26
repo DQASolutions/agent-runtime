@@ -7,7 +7,7 @@
 // spawn-run intent. It never writes and never spawns inline — it only proposes
 // work onto the queue (the single async front door ①). The scheduler drains it.
 
-import type { ActionInterceptor } from '@dqa-ai-solutions/core-runtime'
+import type { ActionInterceptor } from '@dqa-ai-solutions/ontology-runtime'
 import type { SpawnRunIntent } from '../ports/intent.js'
 import type { WorkQueue } from '../ports/work-queue.js'
 import type { TriggerRegistry } from './trigger-def.js'

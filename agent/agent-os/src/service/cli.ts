@@ -4,7 +4,7 @@
 // downstream state.
 
 import type { Kernel, IngressInput } from '../ports/transport.js'
-import type { Args } from '@dqa-ai-solutions/core-runtime'
+import type { Args } from '@dqa-ai-solutions/ontology-runtime'
 
 function required(flags: Record<string, string>, name: string): string {
   const v = flags[name]

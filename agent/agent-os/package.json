@@ -34,14 +34,16 @@
     "@dqa-ai-solutions/agent-orchestrator": "^6.0.0"
   },
   "devDependencies": {
-    "@dqa-ai-solutions/core-runtime": "^0.1.0",
+    "@dqa-ai-solutions/core-runtime": "^0.2.0",
     "@types/node": "^25.3.5",
     "fs-extra": "^11.2.0",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "vitest": "^4.0.18",
+    "@dqa-ai-solutions/ontology-runtime": "^0.2.0"
   },
   "private": true,
   "peerDependencies": {
-    "@dqa-ai-solutions/core-runtime": "^0.1.0"
+    "@dqa-ai-solutions/core-runtime": "^0.2.0",
+    "@dqa-ai-solutions/ontology-runtime": "^0.2.0"
   }
 }

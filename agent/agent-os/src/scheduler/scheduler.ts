@@ -7,7 +7,7 @@
 // kills the drain loop — the defer-not-drop spirit. DoD D relies on this: an
 // action rejected at the door surfaces as a failure with NO downstream effect.
 
-import type { OntologyPort, Ctx, Provenance } from '@dqa-ai-solutions/core-runtime'
+import type { OntologyPort, Ctx, Provenance } from '@dqa-ai-solutions/ontology-runtime'
 import type { Intent, IngestIntent, SpawnRunIntent } from '../ports/intent.js'
 import type { WorkQueue } from '../ports/work-queue.js'
 import type { Spawner } from '../ports/spawner.js'

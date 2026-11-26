@@ -27,13 +27,13 @@ import {
   type Ontology,
   type Ctx,
   type Provenance,
-} from '@dqa-ai-solutions/core-runtime'
-import { GovernedOntologyPort, rbacInterceptor, auditInterceptor, type AuditRecord } from '@dqa-ai-solutions/core-runtime'
-import { loadOntology, loadRules, type OntologyDecl, type RulesDecl } from '@dqa-ai-solutions/core-runtime'
+} from '@dqa-ai-solutions/ontology-runtime'
+import { GovernedOntologyPort, rbacInterceptor, auditInterceptor, type AuditRecord } from '@dqa-ai-solutions/ontology-runtime'
+import { loadOntology, loadRules, type OntologyDecl, type RulesDecl } from '@dqa-ai-solutions/ontology-runtime'
 import { loadSkills, ontologyExecutors, checkExecutor } from '@dqa-ai-solutions/agent-steps'
-import { loadFunctions, loadRuleStore, paramResolver, mergeRulesByType, type RulesByType } from '@dqa-ai-solutions/core-runtime'
+import { loadFunctions, loadRuleStore, paramResolver, mergeRulesByType, type RulesByType } from '@dqa-ai-solutions/ontology-runtime'
 import { readAppDecl } from './load-app.js'
-import { buildStorage, type AppManifest } from '@dqa-ai-solutions/core-runtime'
+import { buildStorage, type AppManifest } from '@dqa-ai-solutions/ontology-runtime'
 import { appendTrace } from './trace.js'
 
 export interface FieldAppOptions {

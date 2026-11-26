@@ -16,7 +16,7 @@ import {
   collectInstanceDataErrors,
   type OntologySchema,
   type OntologyErrorCode,
-} from '@dqa-ai-solutions/core-runtime'
+} from '@dqa-ai-solutions/ontology-runtime'
 import type { IngestPayload } from './executors.js'
 
 export interface PayloadValidationError {

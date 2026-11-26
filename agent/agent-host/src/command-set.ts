@@ -20,7 +20,7 @@ import {
   type ConditionExpr,
   type Args,
   type StorageAdapter,
-} from '@dqa-ai-solutions/core-runtime'
+} from '@dqa-ai-solutions/ontology-runtime'
 import {
   GovernedOntologyPort,
   GovernanceError,
@@ -29,11 +29,11 @@ import {
   capabilityInterceptor,
   type ActionInterceptor,
   type AuditRecord,
-} from '@dqa-ai-solutions/core-runtime'
-import { loadOntology, type OntologyDecl } from '@dqa-ai-solutions/core-runtime'
-import { loadFunctions } from '@dqa-ai-solutions/core-runtime'
+} from '@dqa-ai-solutions/ontology-runtime'
+import { loadOntology, type OntologyDecl } from '@dqa-ai-solutions/ontology-runtime'
+import { loadFunctions } from '@dqa-ai-solutions/ontology-runtime'
 import { readAppDecl } from './load-app.js'
-import { buildStorage, type AppManifest } from '@dqa-ai-solutions/core-runtime'
+import { buildStorage, type AppManifest } from '@dqa-ai-solutions/ontology-runtime'
 import { appendTrace, type TraceKind } from './trace.js'
 import { readGrant } from './grant.js'
 

@@ -1,7 +1,7 @@
 // Logic củan app review chi xăng — TypeScript thật (compile → .js, kernel import).
 // v1 shape: đọc thuộc tính qua `g.data.*`, theo link qua `io.neighbors(id, rel)`.
 
-import { compute, rule, action } from '@dqa-ai-solutions/core-runtime'
+import { compute, rule, action } from '@dqa-ai-solutions/ontology-runtime'
 
 const RATE_VND_PER_KM = 2700 // đ/km
 

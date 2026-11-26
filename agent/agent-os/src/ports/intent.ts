@@ -7,7 +7,7 @@
 // later (os-runtime-design.md §6): every Intent carries its `app` namespace and
 // a causation chain (`causationId` + `depth`).
 
-import type { Args } from '@dqa-ai-solutions/core-runtime'
+import type { Args } from '@dqa-ai-solutions/ontology-runtime'
 
 export type IntentKind = 'ingest' | 'spawn-run'
 

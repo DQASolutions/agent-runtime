@@ -7,9 +7,9 @@ import fs from 'fs-extra'
 import path from 'node:path'
 import { ingestFolder } from '@dqa-ai-solutions/ingest-documents'
 import type { StepExecutor, ExecutorRegistry, StepContext } from '@dqa-ai-solutions/agent-orchestrator'
-import type { OntologyPort, Ctx, Provenance, RuleResult, Instance, FunctionIO } from '@dqa-ai-solutions/core-runtime'
+import type { OntologyPort, Ctx, Provenance, RuleResult, Instance, FunctionIO } from '@dqa-ai-solutions/ontology-runtime'
 import { validateIngestPayload, IngestValidationError } from './ingest-payload-validator.js'
-import type { RuleSpec, Finding, RulesByType } from '@dqa-ai-solutions/core-runtime'
+import type { RuleSpec, Finding, RulesByType } from '@dqa-ai-solutions/ontology-runtime'
 
 /** A case payload for the `ingest` step. Arrives either as the run input (JSON)
  *  or — for real sources — as a file an upstream extractor skill wrote, named

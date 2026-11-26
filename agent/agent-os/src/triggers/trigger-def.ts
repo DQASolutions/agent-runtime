@@ -3,7 +3,7 @@
 // (declared, not ambient) so the same mechanism scales to cross-app
 // choreography later (os-runtime-design.md §7).
 
-import type { OntologyEvent } from '@dqa-ai-solutions/core-runtime'
+import type { OntologyEvent } from '@dqa-ai-solutions/ontology-runtime'
 
 export interface TriggerDef {
   /** Namespaced id, e.g. `demo:onDocUpserted`. */

@@ -5,7 +5,7 @@
 // transport-agnostic; adding the service later is a second adapter, not a
 // rewrite. (Increment 2 implements `Kernel`; this file fixes the seam.)
 
-import type { Args } from '@dqa-ai-solutions/core-runtime'
+import type { Args } from '@dqa-ai-solutions/ontology-runtime'
 
 /** External data arriving at the async front door (drained → an ingest-intent). */
 export interface IngressInput {
