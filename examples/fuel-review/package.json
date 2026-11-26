@@ -1,0 +1,25 @@
+{
+  "name": "@dqa-ai-solutions/example-fuel-review",
+  "version": "5.0.1",
+  "private": true,
+  "description": "Dogfood — review chi xăng. App định dạng v1 (ontology + workflow YAML khai báo + functions TS). Workflow HOÀN CHỈNH: ingest → check → investigate (skill + command-set) → gate. Chạy được e2e (npm start).",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p app/functions/tsconfig.json && tsc -p .",
+    "start": "node dist/run.js",
+    "test": "vitest run",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist app/functions/*.js app/functions/*.d.ts"
+  },
+  "dependencies": {
+    "@dqa-ai-solutions/agent-runtime": "*",
+    "@dqa-ai-solutions/core-runtime": "*",
+    "fs-extra": "^11.3.4"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^25.3.5",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}

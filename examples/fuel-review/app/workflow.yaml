@@ -1,0 +1,32 @@
+# Quy trình HOÀN CHỈNH: nạp → kiểm (rule theo Loại) → điều tra (skill + command-set)
+# → duyệt. Bước investigate không có `uses` → là agent step: FieldSession dừng,
+# trao playbook + tools cho Claude Code; skill tự lặp qua các ca bị flag.
+name: fuel-review
+version: 3
+pipeline:
+  - phase: review
+phases:
+  review:
+    tasks:
+      - id: ingest
+        type: agent-task
+        uses: ingest
+        depends: []
+      - id: check
+        type: agent-task
+        uses: check
+        with: { types: [GiaoDich] }
+        outputs:
+          flagged: { type: boolean }
+          count: { type: number }
+        depends: [ingest]
+      - id: investigate
+        type: agent-task
+        depends: [check]
+        when: check.flagged == true
+      - id: signoff
+        type: gate
+        gate-type: approval
+        description: Duyệt cờ đỏ chi xăng
+        depends: [investigate]
+        when: check.flagged == true

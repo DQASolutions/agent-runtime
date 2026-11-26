@@ -1,0 +1,24 @@
+# Khai báo các Loại + quan hệ (schema). Hand-authored, YAML.
+entities:
+  - name: GiaoDich
+    label: Giao dịch
+    properties:
+      - { name: amount, type: number }
+      - { name: category, type: text }
+  - name: NhatKyXe
+    label: Nhật ký xe
+    properties:
+      - { name: km, type: number }
+  - name: ChungTu
+    label: Chứng từ
+    properties:
+      - { name: purpose, type: text }
+  - name: CoDo
+    label: Cờ đỏ
+    properties:
+      - { name: lyDo, type: text }
+      - { name: trangThai, type: text }
+relationships:
+  - { name: giaoDich_log, from: GiaoDich, to: NhatKyXe, cardinality: 'N..N', directed: true }
+  - { name: giaoDich_chungTu, from: GiaoDich, to: ChungTu, cardinality: 'N..N', directed: true }
+  - { name: giaoDich_coDo, from: GiaoDich, to: CoDo, cardinality: 'N..N', directed: true }

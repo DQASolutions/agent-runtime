@@ -1,0 +1,7 @@
+# Build artifacts: functions compiled in place (decision A)
+app/functions/*.js
+app/functions/*.d.ts
+dist/
+# Run state (workspaces created when driving the app)
+.ws/
+.dqa/

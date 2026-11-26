@@ -1,0 +1,14 @@
+{
+  "instances": [
+    { "type": "GiaoDich", "props": { "amount": 5000000, "category": "xăng" }, "ref": "g1" },
+    { "type": "GiaoDich", "props": { "amount": 1500000, "category": "xăng" }, "ref": "g2" },
+    { "type": "NhatKyXe", "props": { "km": 500 }, "ref": "log2" },
+    { "type": "GiaoDich", "props": { "amount": 4000000, "category": "xăng" }, "ref": "g4" },
+    { "type": "ChungTu", "props": { "purpose": "máy phát điện" }, "ref": "ct4" },
+    { "type": "GiaoDich", "props": { "amount": 2000000, "category": "tiếp khách" }, "ref": "g3" }
+  ],
+  "links": [
+    { "relationship": "giaoDich_log", "from": "g2", "to": "log2" },
+    { "relationship": "giaoDich_chungTu", "from": "g4", "to": "ct4" }
+  ]
+}

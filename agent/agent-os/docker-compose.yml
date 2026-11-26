@@ -1,0 +1,18 @@
+# DoD F — `docker compose up` brings up the always-on service-skeleton.
+# Verify:  curl -XPOST localhost:8080/events -d '{"tenant":"default","app":"demo","action":"demo_ingestDoc","params":{"ref":"D1"}}'
+#          curl localhost:8080/state   # -> {"docs":1,"runs":1}
+services:
+  os-runtime:
+    build:
+      context: ../..
+      dockerfile: agent/agent-os/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: "8080"
+      STATE_DIR: /data
+    volumes:
+      - os-runtime-state:/data
+
+volumes:
+  os-runtime-state:

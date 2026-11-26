@@ -1,0 +1,8 @@
+{
+  "//": "Compile the app's functions to .js IN PLACE so loadFunctions can import them at runtime (decision A: apps ship built .js). The emitted .js/.d.ts are build artifacts (gitignored).",
+  "extends": "../../../../tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": false
+  },
+  "include": ["*.ts"]
+}

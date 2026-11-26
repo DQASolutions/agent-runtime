@@ -1,0 +1,22 @@
+{
+  "rules": [
+    {
+      "id": "R-KYC-DOC", "kind": "REQUIRED_RELATION", "appliesTo": "customer", "severity": "HIGH",
+      "condition": { "op": "absent", "relationship": "submitted" },
+      "message": "Customer {name} has no KYC document on file.",
+      "onFail": { "action": "requestDocument", "severityLabel": "HIGH" }
+    },
+    {
+      "id": "R-PEP", "kind": "CROSS_CHECK", "appliesTo": "customer", "severity": "HIGH",
+      "condition": { "op": "compare", "left": { "kind": "property", "entity": "customer", "name": "pep" }, "cmp": "=", "right": { "kind": "literal", "value": "yes" } },
+      "message": "Customer {name} is a PEP — enhanced due diligence required.",
+      "onFail": { "action": "enhancedDueDiligence", "severityLabel": "HIGH" }
+    },
+    {
+      "id": "R-STRUCTURING", "kind": "AGGREGATE", "appliesTo": "transaction", "severity": "REVIEW",
+      "condition": { "op": "aggregate", "groupBy": ["customer"], "fn": "sum", "field": "amount", "cmp": ">=", "threshold": 50000000 },
+      "message": "Transaction {id} is part of high-volume inflow for its customer.",
+      "onFail": { "action": "fileSAR", "severityLabel": "REVIEW" }
+    }
+  ]
+}

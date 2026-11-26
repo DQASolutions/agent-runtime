@@ -1,0 +1,25 @@
+{
+  "name": "@dqa-ai-solutions/example-kyc-review",
+  "version": "5.0.1",
+  "private": true,
+  "description": "Dogfood domain app — KYC/AML onboarding review. A DECLARATIVE app on the DQA FieldOS kernel: ontology + rules + workflow (data); the kernel loaders + runner do the rest.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p .",
+    "start": "node dist/run.js",
+    "test": "vitest run",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@dqa-ai-solutions/agent-runtime": "*",
+    "@dqa-ai-solutions/core-runtime": "*"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^25.3.5",
+    "fs-extra": "^11.3.4",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}

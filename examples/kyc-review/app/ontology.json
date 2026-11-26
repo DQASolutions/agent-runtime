@@ -1,0 +1,20 @@
+{
+  "entities": [
+    { "name": "customer", "label": "Customer", "properties": [
+      { "name": "name", "type": "text" },
+      { "name": "country", "type": "text" },
+      { "name": "pep", "type": "enum", "enumValues": ["yes", "no"] }
+    ] },
+    { "name": "account", "label": "Account", "properties": [{ "name": "ref", "type": "text" }] },
+    { "name": "transaction", "label": "Transaction", "properties": [
+      { "name": "customer", "type": "text" },
+      { "name": "amount", "type": "number" },
+      { "name": "day", "type": "text" }
+    ] },
+    { "name": "kyc_doc", "label": "KYC Document", "properties": [{ "name": "kind", "type": "text" }] }
+  ],
+  "relationships": [
+    { "name": "owns", "from": "customer", "to": "account", "cardinality": "N..N", "directed": true },
+    { "name": "submitted", "from": "customer", "to": "kyc_doc", "cardinality": "N..N", "directed": true }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://dqa.solutions/schemas/dqa-context.schema.json",
+  "title": "DqaContext",
+  "description": "Consolidated, API-spreadable output of dqa-doc-ingest. Spread `content_blocks` directly into Anthropic Messages API.",
+  "type": "object",
+  "required": ["version", "generated", "source_files", "content_blocks", "stats", "budget_warnings"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "3.0"
+    },
+    "generated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_files": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/SourceFile" }
+    },
+    "content_blocks": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/ContentBlock" }
+    },
+    "stats": {
+      "type": "object",
+      "required": ["total_blocks", "total_tokens", "total_images", "file_count"],
+      "additionalProperties": false,
+      "properties": {
+        "total_blocks": { "type": "integer", "minimum": 0 },
+        "total_tokens": { "type": "integer", "minimum": 0 },
+        "total_images": { "type": "integer", "minimum": 0 },
+        "file_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "budget_warnings": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/BudgetWarning" }
+    }
+  },
+  "definitions": {
+    "SourceFile": {
+      "type": "object",
+      "required": ["path", "kebab_name", "track", "stats", "block_range"],
+      "additionalProperties": false,
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "kebab_name": { "type": "string", "minLength": 1 },
+        "track": {
+          "type": "string",
+          "enum": ["native-pdf", "native-image", "native-text", "office", "xlsx"]
+        },
+        "stats": {
+          "type": "object",
+          "required": ["total_blocks", "estimated_tokens", "image_count"],
+          "additionalProperties": false,
+          "properties": {
+            "total_blocks": { "type": "integer", "minimum": 0 },
+            "estimated_tokens": { "type": "integer", "minimum": 0 },
+            "image_count": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "block_range": {
+          "type": "object",
+          "required": ["start", "end"],
+          "additionalProperties": false,
+          "properties": {
+            "start": { "type": "integer", "minimum": 0 },
+            "end": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "ContentBlock": {
+      "oneOf": [
+        { "$ref": "#/definitions/TextBlock" },
+        { "$ref": "#/definitions/ImageBlock" },
+        { "$ref": "#/definitions/DocumentBlock" }
+      ]
+    },
+    "TextBlock": {
+      "type": "object",
+      "required": ["type", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "text" },
+        "text": { "type": "string" }
+      }
+    },
+    "ImageBlock": {
+      "type": "object",
+      "required": ["type", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "image" },
+        "source": { "$ref": "#/definitions/Base64Source" }
+      }
+    },
+    "DocumentBlock": {
+      "type": "object",
+      "required": ["type", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "document" },
+        "source": { "$ref": "#/definitions/Base64Source" }
+      }
+    },
+    "Base64Source": {
+      "type": "object",
+      "required": ["type", "media_type", "data"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "const": "base64" },
+        "media_type": { "type": "string", "minLength": 1 },
+        "data": { "type": "string" }
+      }
+    },
+    "BudgetWarning": {
+      "type": "object",
+      "required": ["kind", "total", "limit", "message"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "tokens",
+            "images-anthropic-limit",
+            "images-user-budget"
+          ]
+        },
+        "total": { "type": "integer", "minimum": 0 },
+        "limit": { "type": "integer", "minimum": 0 },
+        "message": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "@dqa-ai-solutions/agent-orchestrator",
+  "version": "6.0.0",
+  "description": "DQA workflow orchestrator: next-step decision and batching, event-sourced state, schema, gates, structured step outputs.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DQASolutions/agent-runtime.git",
+    "directory": "agent/agent-orchestrator"
+  },
+  "homepage": "https://github.com/DQASolutions/agent-runtime#readme",
+  "bugs": {
+    "url": "https://github.com/DQASolutions/agent-runtime/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "vitest run",
+    "lint": "tsc --noEmit && tsc -p tsconfig.check.json",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "fs-extra": "^11.3.4",
+    "glob": "^13.0.6",
+    "js-yaml": "^4.1.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/js-yaml": "^4.0.9",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "private": true
+}

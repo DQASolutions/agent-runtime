@@ -1,0 +1,33 @@
+{
+  "name": "kyc-review",
+  "version": 3,
+  "pipeline": [{ "phase": "onboarding" }],
+  "phases": {
+    "onboarding": {
+      "description": "Screen a new customer and escalate flagged cases to compliance.",
+      "tasks": [
+        { "id": "map", "type": "agent-task", "uses": "ingest", "depends": [] },
+        {
+          "id": "screen", "type": "agent-task", "uses": "evaluate-rules",
+          "with": { "entityTypes": ["customer", "transaction"] },
+          "outputs": { "flagged": { "type": "boolean" }, "findings": { "type": "number" } },
+          "depends": ["map"]
+        },
+        {
+          "id": "assess", "type": "agent-task", "output": "assessment.md",
+          "depends": ["screen"], "when": "screen.flagged == true"
+        },
+        {
+          "id": "compliance-signoff", "type": "gate", "gate-type": "approval",
+          "description": "Compliance officer signs off a flagged onboarding.",
+          "depends": ["assess"], "when": "screen.flagged == true"
+        },
+        {
+          "id": "decide", "type": "agent-task", "uses": "report",
+          "with": { "entityTypes": ["customer", "transaction"], "output": "decision.md" },
+          "depends": ["screen"]
+        }
+      ]
+    }
+  }
+}

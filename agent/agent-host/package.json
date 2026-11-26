@@ -1,0 +1,55 @@
+{
+  "name": "@dqa-ai-solutions/agent-host",
+  "version": "0.1.0",
+  "description": "Agent host: FieldApp.load(pack).run(case), FieldSession, CommandSet, capability grants, trace ledger and the dqa-fos CLI.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DQASolutions/agent-runtime.git",
+    "directory": "agent/agent-host"
+  },
+  "homepage": "https://github.com/DQASolutions/agent-runtime#readme",
+  "bugs": {
+    "url": "https://github.com/DQASolutions/agent-runtime/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./cli": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "dqa-fos": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "vitest run",
+    "lint": "tsc --noEmit && tsc -p tsconfig.check.json",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@dqa-ai-solutions/agent-orchestrator": "^6.0.0",
+    "@dqa-ai-solutions/agent-steps": "^0.1.0",
+    "fs-extra": "^11.3.4",
+    "js-yaml": "^4.1.1"
+  },
+  "devDependencies": {
+    "@dqa-ai-solutions/core-runtime": "^0.1.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^25.3.5",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "private": true,
+  "peerDependencies": {
+    "@dqa-ai-solutions/core-runtime": "^0.1.0"
+  }
+}

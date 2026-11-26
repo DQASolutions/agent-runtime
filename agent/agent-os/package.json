@@ -1,0 +1,47 @@
+{
+  "name": "@dqa-ai-solutions/agent-os",
+  "version": "5.1.2",
+  "description": "DQA FieldOS OS-runtime: the always-on, non-LLM tier — work queue (single async front door), trigger/reaction engine, scheduler, driver port. Sits on @dqa-ai-solutions/ontology-governance's single write door.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DQASolutions/agent-runtime.git",
+    "directory": "agent/agent-os"
+  },
+  "homepage": "https://github.com/DQASolutions/agent-runtime#readme",
+  "bugs": {
+    "url": "https://github.com/DQASolutions/agent-runtime/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "vitest run",
+    "lint": "tsc --noEmit && tsc -p tsconfig.check.json",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@dqa-ai-solutions/agent-orchestrator": "^6.0.0"
+  },
+  "devDependencies": {
+    "@dqa-ai-solutions/core-runtime": "^0.1.0",
+    "@types/node": "^25.3.5",
+    "fs-extra": "^11.2.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "private": true,
+  "peerDependencies": {
+    "@dqa-ai-solutions/core-runtime": "^0.1.0"
+  }
+}

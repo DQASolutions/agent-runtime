@@ -1,0 +1,55 @@
+{
+  "name": "@dqa-ai-solutions/agent-runtime",
+  "version": "0.1.0",
+  "description": "The agent tier in one package: host, orchestrator, step executors, always-on tier, document ingestion. Stands on @dqa-ai-solutions/core-runtime.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DQASolutions/agent-runtime.git",
+    "directory": "agent/agent-runtime"
+  },
+  "homepage": "https://github.com/DQASolutions/agent-runtime#readme",
+  "bugs": {
+    "url": "https://github.com/DQASolutions/agent-runtime/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "dqa-fos": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./cli": "./dist/cli.js",
+    "./ingest-documents/schemas/*": "./dist/ingest-documents/schemas/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p . && node ../../scripts/copy-assets.mjs agent-runtime",
+    "test": "vitest run --passWithNoTests",
+    "lint": "tsc --noEmit && tsc -p tsconfig.check.json",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@dqa-ai-solutions/agent-host": "^0.1.0",
+    "@dqa-ai-solutions/agent-orchestrator": "^6.0.0",
+    "@dqa-ai-solutions/agent-os": "^5.1.2",
+    "@dqa-ai-solutions/agent-steps": "^0.1.0",
+    "@dqa-ai-solutions/ingest-documents": "^5.1.1"
+  },
+  "peerDependencies": {
+    "@dqa-ai-solutions/core-runtime": "^0.1.0"
+  },
+  "devDependencies": {
+    "@dqa-ai-solutions/core-runtime": "^0.1.0",
+    "@types/node": "^25.3.5",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}

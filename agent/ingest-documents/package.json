@@ -1,0 +1,50 @@
+{
+  "name": "@dqa-ai-solutions/ingest-documents",
+  "version": "5.1.1",
+  "description": "DQA document ingestion engine: PDF/DOCX/PPTX/XLSX/image → API-spreadable dqa-context.json.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DQASolutions/agent-runtime.git",
+    "directory": "agent/ingest-documents"
+  },
+  "homepage": "https://github.com/DQASolutions/agent-runtime#readme",
+  "bugs": {
+    "url": "https://github.com/DQASolutions/agent-runtime/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "schemas"
+  ],
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "vitest run",
+    "lint": "tsc --noEmit && tsc -p tsconfig.check.json",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.5.0",
+    "fs-extra": "^11.3.4",
+    "js-yaml": "^4.1.1",
+    "jszip": "^3.10.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^25.3.5",
+    "ajv": "^8.18.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "private": true
+}

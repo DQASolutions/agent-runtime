@@ -1,0 +1,27 @@
+# app.yaml — the app manifest. Declares HOW the app is deployed.
+# The kernel reads this and maps `storage.adapter` to a concrete backend class
+# (engine/fieldos/src/storage.ts). Secrets never live here.
+
+name: fuel-review
+
+storage:
+  # Which backend the ontology runs on: filesystem | postgres | memory
+  adapter: filesystem
+  # filesystem only — ontology dir (relative paths resolve under the workspace).
+  # Default is `.dqa/ontology`, so this line is optional.
+  path: .dqa/ontology
+
+  # ── To run on Postgres instead, replace the block above with: ───────────────
+  # adapter: postgres
+  # connectionEnv: DATABASE_URL   # name of the env var holding the connection
+  #                               # string; the value is supplied by the
+  #                               # deployment (export DATABASE_URL=postgres://…),
+  #                               # NOT committed in this file.
+  #
+  # ── Or on Neo4j (graph DB): ─────────────────────────────────────────────────
+  # adapter: neo4j
+  #   # connection from env, not committed here:
+  #   #   NEO4J_URL=bolt://localhost:7687  NEO4J_USER=neo4j  NEO4J_PASSWORD=…
+  #
+  # ── In-memory (ephemeral, tests only): ──────────────────────────────────────
+  # adapter: memory
